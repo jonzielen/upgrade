@@ -1,0 +1,30 @@
+// ========================
+// Variable Definitions
+// ========================
+
+$brand-secondary: #ec008c;
+
+// ========================
+// Mixins
+// ========================
+
+
+
+// ========================
+// Functions
+// ========================
+
+/*---- Tint and Shade (Mixes color with white and black respectively) ----*/
+///
+/// @example scss - Usage
+///   .element {
+///     background-color: tint(#6ecaa6, 40%);
+///   }
+///
+@function tint($color, $percent) {
+  @return mix(#fff, $color, $percent);
+}
+
+@function shade($color, $percent) {
+  @return mix(#000, $color, $percent);
+}

@@ -1,6 +1,13 @@
 // Import Bootstrap Compass integration
 //@import "bootstrap-compass";
 
+// Import Compass Mixins
+@import "compass/css3";
+@import "compass/typography/text";
+
+// Import Custom Mixins
+@import "mixins";
+
 // Import custom Bootstrap variables
 @import "bootstrap-variables";
 
@@ -12,6 +19,7 @@
 
 // Import Font Awesome for Sass
 @import "font-awesome";
+
 
 // Import Custom Theme
 @import "theme";
