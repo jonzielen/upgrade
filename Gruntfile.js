@@ -2,15 +2,18 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    htmlmin: {
-      dist: {
-        options: {
-          /*preserveLineBreaks:true,
-          collapseWhitespace:true*/
-        },
-        files: {
-          'index.html': 'index.html',
-        }
+    prettify: {
+      options: {
+        condense:true,
+        indent: 4,
+        indent_char: ' ',
+        wrap_line_length: 0,
+        brace_style: 'expand',
+        unformatted: ['a', 'sub', 'sup', 'b', 'i', 'u']
+      },
+      html: {
+        // Target-specific file lists and/or options go here.
+        'index.html': 'index.html',
       }
     },
     compass: {
@@ -56,7 +59,7 @@ module.exports = function (grunt) {
       },
       html: {
         files:['*.html'],
-        tasks:['htmlmin'],
+        tasks:['prettify'],
         options: {
           spawn:false,
           livereload:true
@@ -68,7 +71,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-prettify');
 
-  grunt.registerTask('default', ['compass', 'uglify', 'htmlmin']);
+  grunt.registerTask('default', ['compass', 'uglify', 'prettify']);
 };
