@@ -48,13 +48,11 @@ h1,h2,h3 {color:$brand-primary;}
 
 
 .card {
-    float:left;
     margin-right:2%;
-    width:98%;
-    @media screen and (min-width: $screen-xs-min){
-		@include card-columns(1);
+    @media screen and (max-width: $screen-xs-max) {
+        @include card-columns(1);
     }
-    @media screen and (max-width: $screen-sm-max){
+    @media screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max){
 		@include card-columns(2);
     }
     @media screen and (min-width: $screen-md-min){
@@ -107,7 +105,10 @@ h1,h2,h3 {color:$brand-primary;}
             margin-bottom:0;
         }
         dt {
+            // Overwriting Bootstraps original DT styles
             width: 60px;
+            float:left;
+            clear:left;
         }
         dd {
             margin-left:65px;

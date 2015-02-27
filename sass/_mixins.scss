@@ -9,7 +9,7 @@ $brand-secondary: #ec008c;
 // ========================
 @mixin card-columns($col-count) {
     height: 340px;
-    @if $col-count == 2 {
+    @if $col-count == 1 {
         width:100%;
     } @else if $col-count == 2 {
         width:47%;
@@ -17,6 +17,7 @@ $brand-secondary: #ec008c;
         width:32%;
     }
     @if $col-count > 1 {
+        float:left;
         &:nth-child(#{$col-count}n) {
             margin-right:0;
         }
