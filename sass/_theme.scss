@@ -39,17 +39,21 @@ h1,h2,h3 {color:$brand-primary;}
     float:left;
     margin-right:2%;
     width:98%;
-    
+    margin-top:20px;
     @media screen and (min-width: $screen-xs-min){
         width:47%;
+		height: 340px;
+		&:nth-child(2n) {
+			margin-right:0;
+		}
     }
     @media screen and (min-width: $screen-md-min){
         width:32%;
         height: 340px;
+		&:nth-child(3n) {
+			margin-right:0;
+		}
     }    
-    &:nth-child(3n) {
-        margin-right:0;
-    }
     perspective: 1000;
     transition: 0.6s;
 	transform-style: preserve-3d;
