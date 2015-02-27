@@ -44,6 +44,16 @@ h1,h2,h3 {color:$brand-primary;}
             }
         }
     }
+    .panel-title {
+        a {
+            &:hover, &:focus {
+                text-decoration:none;
+                font-weight:bold;
+                outline:none;
+                outline-offset: 0;
+            }
+        }
+    }
 }
 
 
@@ -62,7 +72,6 @@ h1,h2,h3 {color:$brand-primary;}
     transition: 0.6s;
 	transform-style: preserve-3d;
 	position: relative;
-    @include box-shadow(#999 2px 2px 5px);
     .front, .back {
         backface-visibility: hidden;
         width:100%;
@@ -71,6 +80,7 @@ h1,h2,h3 {color:$brand-primary;}
         top: 0;
         left: 0;
         overflow:hidden;
+        @include box-shadow(#999 2px 2px 5px);
     }
     .front {
         z-index: 2;
@@ -105,10 +115,10 @@ h1,h2,h3 {color:$brand-primary;}
             margin-bottom:0;
         }
         dt {
-            // Overwriting Bootstraps original DT styles
             width: 60px;
-            float:left;
-            clear:left;
+            // Overwriting Bootstraps original DT styles for Mobile (xs)
+            float: left;
+            clear: left;
         }
         dd {
             margin-left:65px;

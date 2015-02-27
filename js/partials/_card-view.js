@@ -1,15 +1,4 @@
-$(function() {
-        /* Sliding Side Panel [[[NOT USING]]] */
-        $('.slide-button').on('click',function() {
-            $('.slide-button').animate({left:'55'},500);
-            $('.side-panel').animate({width:'0',padding:'0'},500, function() {
-                $(this).removeClass('col-xs-2').hide();
-            });
-            $('.card-container').animate({width: '98%'},500, function() {
-                $(this).removeClass('col-xs-2').addClass('col-xs-12');
-            });
-        });
-        
+$(function() {        
         /* Flipping Card Buttons */
         $('.flipper').hover(function(){
             $(this).children('.fa-map-marker').toggleClass('fa-inverse').toggleClass('fa-pulse');
