@@ -11,10 +11,13 @@ module.exports = function (grunt) {
         brace_style: 'expand',
         unformatted: ['a', 'sub', 'sup', 'b', 'i', 'u']
       },
-      html: {
-        // Target-specific file lists and/or options go here.
-        'index.html': 'index.html',
-      }
+      all: {
+        expand: true,
+        cwd: '',
+        ext: '.html',
+        src: ['*.html'],
+        dest: ''
+      },
     },
     compass: {
       dist: {

@@ -1,278 +1,307 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="cardviewApp">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Test</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen" />
-    <script type="text/javascript" src="add-ons/jquery/jquery.min.js"></script>
-	 <script type="text/javascript" src="add-ons/angular/angular.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/global.min.js"></script>
-	
-	<script type="text/javascript">
-			var cardviewApp = angular.module('cardviewApp', []);
-
-		cardviewApp.controller('CardViewCtrl', function ($scope) {
-		  $scope.venues = [
-			{'name': 'Barclays Center',
-			 'image': 'http://www.nycgo.com/images/460x285/BarclaysCenterNight_V1_460x285.jpg',
-			 'coord': '40.682524,-73.975013'},
-			{'name': 'Brooklyn Bridge',
-			 'image': 'http://www.nycgo.com/images/460x285/01_Brooklyn_Bridge_460x285.jpg',
-			 'coord': '40.706086,-73.996864'},
-			{'name': 'Statue of Liberty',
-			 'image': 'http://www.nycgo.com/images/460x285/Emma%20Lazarus_StatueOfLiberty_V2_460x285.jpg',
-			 'coord':'40.689249,-74.0445'},
-			 {'name': 'Central Park',
-			 'image': 'http://www.nycgo.com/images/460x285/Central_ParkV7_460x285.jpg',
-			 'coord': '40.782865,-73.965355'}
-		  ];
-		});
-	</script>
-</head>
-<body ng-controller="CardViewCtrl">
-    <div class="container">
-    <div class="page-header">
-        <h1>Card Layout</h1>
-    </div>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Browse</a>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Test</title>
+        <link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen" />
+        <script type="text/javascript" src="add-ons/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="add-ons/angular/angular.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/global.min.js"></script>
+        <script type="text/javascript">
+        var cardviewApp = angular.module('cardviewApp', []);
+        cardviewApp.controller('CardViewCtrl', function($scope)
+        {
+            $scope.venues = [
+            {
+                'name': 'Barclays Center',
+                'image': 'http://www.nycgo.com/images/460x285/BarclaysCenterNight_V1_460x285.jpg',
+                'coord': '40.682524,-73.975013'
+            },
+            {
+                'name': 'Brooklyn Bridge',
+                'image': 'http://www.nycgo.com/images/460x285/01_Brooklyn_Bridge_460x285.jpg',
+                'coord': '40.706086,-73.996864'
+            },
+            {
+                'name': 'Statue of Liberty',
+                'image': 'http://www.nycgo.com/images/460x285/Emma%20Lazarus_StatueOfLiberty_V2_460x285.jpg',
+                'coord': '40.689249,-74.0445'
+            },
+            {
+                'name': 'Central Park',
+                'image': 'http://www.nycgo.com/images/460x285/Central_ParkV7_460x285.jpg',
+                'coord': '40.782865,-73.965355'
+            }];
+        });
+        </script>
+    </head>
+    <body ng-controller="CardViewCtrl">
+        <div class="container">
+            <div class="page-header">
+                <h1>Card Layout</h1>
             </div>
-            <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                    <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <a href="#" class="input-group-addon">
-                        <span class="fa fa-search"></span>
-                    </a>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Browse</a>
                     </div>
-                </div>              
-                <select class="form-control">
-                  <option default>Select Cuisine</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-                <select class="form-control">
-                  <option default>Select Neighborhood</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                        View Type <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li href="#1" data-toggle="tab"><a><span class="fa fa-list"></span> List</a></li>
-                        <li href="#2" data-toggle="tab"><a><span class="fa fa-th-large"></span>  Grid</a></li>
-                        <li href="#3" data-toggle="tab"><a><span class="fa fa-map-marker"></span> Map</a></li>
-                    </ul>
-                </div>
-            </form>
-        </div>
-    </nav>
-    <div class="row">
-        <div class="col-xs-2 side-panel">
-            <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="fa fa-folder-close">
-                            </span> Content</a>
-                        </h4>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <table class="table">
-                                <tr>
-                                    <td>
-                                        <span class="fa fa-pencil text-primary"></span> <a href="http://www.jquery2dotnet.com">Articles</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="fa fa-flash text-success"></span> <a href="http://www.jquery2dotnet.com">News</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="fa fa-file text-info"></span> <a href="http://www.jquery2dotnet.com">Newsletters</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="fa fa-comment text-success"></span> <a href="http://www.jquery2dotnet.com">Comments</a>
-                                        <span class="badge">42</span>
-                                    </td>
-                                </tr>
-                            </table>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                                <a href="#" class="input-group-addon">
+                                    <span class="fa fa-search"></span>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="fa fa-th">
-                            </span> Modules</a>
-                        </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <table class="table">
-                                <tr>
-                                    <td>
-                                        <a href="http://www.jquery2dotnet.com">Orders</a> <span class="label label-success">$ 320</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="http://www.jquery2dotnet.com">Invoices</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="http://www.jquery2dotnet.com">Shipments</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="http://www.jquery2dotnet.com">Tex</a>
-                                    </td>
-                                </tr>
-                            </table>
+                        <select class="form-control">
+                            <option default>Select Cuisine</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        <select class="form-control">
+                            <option default>Select Neighborhood</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                View Type
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li href="#1" data-toggle="tab">
+                                    <a>
+                                        <span class="fa fa-list"></span> List</a>
+                                </li>
+                                <li href="#2" data-toggle="tab">
+                                    <a>
+                                        <span class="fa fa-th-large"></span> Grid</a>
+                                </li>
+                                <li href="#3" data-toggle="tab">
+                                    <a>
+                                        <span class="fa fa-map-marker"></span> Map</a>
+                                </li>
+                            </ul>
                         </div>
-                    </div>
+                    </form>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="fa fa-user">
-                            </span> Account</a>
-                        </h4>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <table class="table">
-                                <tr>
-                                    <td>
-                                        <a href="http://www.jquery2dotnet.com">Change Password</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="http://www.jquery2dotnet.com">Notifications</a> <span class="label label-info">5</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="http://www.jquery2dotnet.com">Import/Export</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="fa fa-trash text-danger"></span> <a href="http://www.jquery2dotnet.com" class="text-danger">
+            </nav>
+            <div class="row">
+                <div class="col-xs-2 side-panel">
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                        <span class="fa fa-folder-close">
+                                        </span> Content</a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <table class="table">
+                                        <tr>
+                                            <td>
+                                                <span class="fa fa-pencil text-primary"></span> <a href="http://www.jquery2dotnet.com">Articles</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="fa fa-flash text-success"></span> <a href="http://www.jquery2dotnet.com">News</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="fa fa-file text-info"></span> <a href="http://www.jquery2dotnet.com">Newsletters</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="fa fa-comment text-success"></span> <a href="http://www.jquery2dotnet.com">Comments</a>
+                                                <span class="badge">42</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                        <span class="fa fa-th">
+                                        </span> Modules</a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <table class="table">
+                                        <tr>
+                                            <td>
+                                                <a href="http://www.jquery2dotnet.com">Orders</a>
+                                                <span class="label label-success">$ 320</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="http://www.jquery2dotnet.com">Invoices</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="http://www.jquery2dotnet.com">Shipments</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="http://www.jquery2dotnet.com">Tex</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                        <span class="fa fa-user">
+                                        </span> Account</a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <table class="table">
+                                        <tr>
+                                            <td>
+                                                <a href="http://www.jquery2dotnet.com">Change Password</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="http://www.jquery2dotnet.com">Notifications</a>
+                                                <span class="label label-info">5</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="http://www.jquery2dotnet.com">Import/Export</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="fa fa-trash text-danger"></span> <a href="http://www.jquery2dotnet.com" class="text-danger">
                                             Delete Account</a>
-                                    </td>
-                                </tr>
-                            </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                                        <span class="fa fa-file">
+                                        </span> Reports</a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <table class="table">
+                                        <tr>
+                                            <td>
+                                                <span class="fa fa-usd"></span> <a href="http://www.jquery2dotnet.com">Sales</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="fa fa-user"></span> <a href="http://www.jquery2dotnet.com">Customers</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="fa fa-tasks"></span> <a href="http://www.jquery2dotnet.com">Products</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="fa fa-shopping-cart"></span> <a href="http://www.jquery2dotnet.com">Shopping Cart</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="fa fa-file">
-                            </span> Reports</a>
-                        </h4>
-                    </div>
-                    <div id="collapseFour" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <table class="table">
-                                <tr>
-                                    <td>
-                                        <span class="fa fa-usd"></span> <a href="http://www.jquery2dotnet.com">Sales</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="fa fa-user"></span> <a href="http://www.jquery2dotnet.com">Customers</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="fa fa-tasks"></span> <a href="http://www.jquery2dotnet.com">Products</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <span class="fa fa-shopping-cart"></span> <a href="http://www.jquery2dotnet.com">Shopping Cart</a>
-                                    </td>
-                                </tr>
-                            </table>
+                <div class="slide-button"></div>
+                <div class="col-xs-10 card-container">
+                    <div class="card" ng-repeat="venue in venues">
+                        <div class="front panel panel-default">
+                            <div class="panel-body">
+                                <span class="flipper fa-stack fa-lg">
+                                    <i class="fa fa-square-o fa-stack-2x"></i>
+                                    <i class="fa fa fa-map-marker fa-stack-1x"></i>
+                                </span>
+                                <h4>{{venue.name}}</h4>
+                                <img class="img-responsive" src="{{venue.image}}" />
+                            </div>
+                            <div class="panel-footer">
+                                <dl class="information dl-horizontal">
+                                    <dt>categories:</dt>
+                                    <dd>Arts &amp; Entertainment, Performing Arts, Concerts, Sports</dd>
+                                    <dt>website:</dt>
+                                    <dd><a href="http://http://www.barclayscenter.com/">http://www.barclayscenter.com/</a>
+                                    </dd>
+                                    <dt>twitter:</dt>
+                                    <dd><a href="http://www.twitter.com/barclayscenter">@barclayscenter</a>
+                                    </dd>
+                                    <dt>facebook:</dt>
+                                    <dd><a href="http://www.facebook.com/https://www.facebook.com/barclayscenter">Facebook page</a>
+                                    </dd>
+                                </dl>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="slide-button"></div>
-        <div class="col-xs-10 card-container">
-        <div class="card" ng-repeat="venue in venues">
-            <div class="front panel panel-default">
-                <div class="panel-body">
-                    <span class="flipper fa-stack fa-lg">
-                      <i class="fa fa-square-o fa-stack-2x"></i>
-                      <i class="fa fa fa-map-marker fa-stack-1x"></i>
-                    </span>
-                    <h4>{{venue.name}}</h4>
-                    <img class="img-responsive" src="{{venue.image}}" />
-                </div>
-                 <div class="panel-footer">
-                    <dl class="information dl-horizontal">
-                    <dt>categories:</dt>
-                    <dd>Arts &amp; Entertainment, Performing Arts, Concerts, Sports</dd>
-                    <dt>website:</dt>
-                    <dd><a href="http://http://www.barclayscenter.com/">http://www.barclayscenter.com/</a></dd>
-                    <dt>twitter:</dt>
-                    <dd><a href="http://www.twitter.com/barclayscenter">@barclayscenter</a></dd>
-                    <dt>facebook:</dt>
-                    <dd><a href="http://www.facebook.com/https://www.facebook.com/barclayscenter">Facebook page</a></dd>
-                    </dl>
-                </div>
-            </div>
-            <div class="back panel panel-default">
-                <span class="flipper-back fa-stack fa-lg">
-                    <i class="fa fa-square-o fa-stack-2x"></i>
-                    <i class="fa fa-info fa-stack-1x"></i>
-                </span>
-                <div class="panel-body">
-                    <h4>Barclays Center</h4>
-                    <img class="img-responsive" src="https://maps.googleapis.com/maps/api/staticmap?center={{venue.coord}}&zoom=15&size=460x285&maptype=roadmap
+                        <div class="back panel panel-default">
+                            <span class="flipper-back fa-stack fa-lg">
+                                <i class="fa fa-square-o fa-stack-2x"></i>
+                                <i class="fa fa-info fa-stack-1x"></i>
+                            </span>
+                            <div class="panel-body">
+                                <h4>Barclays Center</h4>
+                                <img class="img-responsive" src="https://maps.googleapis.com/maps/api/staticmap?center={{venue.coord}}&zoom=15&size=460x285&maptype=roadmap
 &markers=color:red%7Clabel:A%7C{{venue.coord}}" />
-                </div>
-                <div class="panel-footer">
-                    <address>
-                        <strong>Borough:</strong> <a href="#">Bronx</a><br />
-                        <strong>Neighborhood:</strong> <a href="#">Boerum Hill</a><br />
-                        1 East 161st Street<br />
-                        Bronx, NY 10451<br />
-					</address>
-                    <div class="contact">
-                        <strong>Contact:</strong><br />
-                        <abbr title="Phone">P:</abbr> 917-618-6700<br>
-                        <abbr title="Fax">F:</abbr> 646-616-9575
+                            </div>
+                            <div class="panel-footer">
+                                <address>
+                                    <strong>Borough:</strong> <a href="#">Bronx</a>
+                                    <br />
+                                    <strong>Neighborhood:</strong> <a href="#">Boerum Hill</a>
+                                    <br /> 1 East 161st Street
+                                    <br /> Bronx, NY 10451
+                                    <br />
+                                </address>
+                                <div class="contact">
+                                    <strong>Contact:</strong>
+                                    <br />
+                                    <abbr title="Phone">P:</abbr> 917-618-6700
+                                    <br>
+                                    <abbr title="Fax">F:</abbr> 646-616-9575
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
-    </div>    
-</div> 
-</body>
+    </body>
 </html>
