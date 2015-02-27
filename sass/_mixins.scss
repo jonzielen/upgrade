@@ -7,7 +7,26 @@ $brand-secondary: #ec008c;
 // ========================
 // Mixins
 // ========================
-
+@mixin card-columns($col-count) {
+    height: 340px;
+    @if $col-count == 2 {
+        width:100%;
+    } @else if $col-count == 2 {
+        width:47%;
+    } @else if $col-count == 3 {
+        width:32%;
+    }
+    @if $col-count > 1 {
+        &:nth-child(#{$col-count}n) {
+            margin-right:0;
+        }
+        &:not(:nth-child(-n + #{$col-count})) {
+            margin-top:20px;
+        }
+    } @else {
+        margin-bottom:20px;
+    }
+}
 
 
 // ========================

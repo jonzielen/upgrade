@@ -34,25 +34,31 @@ h1,h2,h3 {color:$brand-primary;}
     @extend %clearfix;
 }
 
+.side-panel {
+    .panel-body {
+        padding:0;
+        ul li {
+            padding:5px 15px;
+            &:not(:last-child) {
+                border-bottom:1px solid #ccc;
+            }
+        }
+    }
+}
+
 
 .card {
     float:left;
     margin-right:2%;
     width:98%;
-    margin-top:20px;
     @media screen and (min-width: $screen-xs-min){
-        width:47%;
-		height: 340px;
-		&:nth-child(2n) {
-			margin-right:0;
-		}
+		@include card-columns(1);
+    }
+    @media screen and (max-width: $screen-sm-max){
+		@include card-columns(2);
     }
     @media screen and (min-width: $screen-md-min){
-        width:32%;
-        height: 340px;
-		&:nth-child(3n) {
-			margin-right:0;
-		}
+        @include card-columns(3);
     }    
     perspective: 1000;
     transition: 0.6s;
@@ -66,6 +72,7 @@ h1,h2,h3 {color:$brand-primary;}
         position: absolute;
         top: 0;
         left: 0;
+        overflow:hidden;
     }
     .front {
         z-index: 2;
