@@ -6,29 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Test</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css" media="screen" />
-    <script type="text/javascript" src="add-ons/jquery/jquery.min.js"></script>
-	 <script type="text/javascript" src="add-ons/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/add-ons/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/add-ons/angular/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/global.min.js"></script>
+	<script type="text/javascript" src="/js/global.min.js"></script>
 	
 	<script type="text/javascript">
-			var cardviewApp = angular.module('cardviewApp', []);
+		var cardviewApp = angular.module('cardviewApp', []);
 
-		cardviewApp.controller('CardViewCtrl', function ($scope) {
-		  $scope.venues = [
-			{'name': 'Barclays Center',
-			 'image': 'http://www.nycgo.com/images/460x285/BarclaysCenterNight_V1_460x285.jpg',
-			 'coord': '40.682524,-73.975013'},
-			{'name': 'Brooklyn Bridge',
-			 'image': 'http://www.nycgo.com/images/460x285/01_Brooklyn_Bridge_460x285.jpg',
-			 'coord': '40.706086,-73.996864'},
-			{'name': 'Statue of Liberty',
-			 'image': 'http://www.nycgo.com/images/460x285/Emma%20Lazarus_StatueOfLiberty_V2_460x285.jpg',
-			 'coord':'40.689249,-74.0445'},
-			 {'name': 'Central Park',
-			 'image': 'http://www.nycgo.com/images/460x285/Central_ParkV7_460x285.jpg',
-			 'coord': '40.782865,-73.965355'}
-		  ];
+		cardviewApp.controller('CardViewCtrl', function ($scope, $http) {
+            $scope.venues = [];
+            var json = 'http://dev.nycgo.com/index.php/xml/dining?limit=50&callback=JSON_CALLBACK';
+            var promise = $http.jsonp(json);
+                promise.then(function(result) {
+                $scope.venues = result.data;
+                $scope.cuisines = _.uniq(_.pluck($scope.venues, 'cuisine')).sort();
+                $scope.neighborhoods = _.uniq(_.pluck($scope.venues, 'hood')).sort();
+                $scope.boroughs = _.uniq(_.pluck($scope.venues, 'borough')).sort();
+            });
+            /*
+            $scope.venues = [
+                {'name': 'Barclays Center',
+                'image': 'http://www.nycgo.com/images/460x285/BarclaysCenterNight_V1_460x285.jpg',
+                'coord': '40.682524,-73.975013'},
+                {'name': 'Brooklyn Bridge',
+                'image': 'http://www.nycgo.com/images/460x285/01_Brooklyn_Bridge_460x285.jpg',
+                'coord': '40.706086,-73.996864'},
+                {'name': 'Statue of Liberty',
+                'image': 'http://www.nycgo.com/images/460x285/Emma%20Lazarus_StatueOfLiberty_V2_460x285.jpg',
+                'coord':'40.689249,-74.0445'},
+                {'name': 'Central Park',
+                'image': 'http://www.nycgo.com/images/460x285/Central_ParkV7_460x285.jpg',
+                'coord': '40.782865,-73.965355'}
+            ];
+            */
 		});
 	</script>
 </head>
@@ -149,7 +161,7 @@
                       <i class="fa fa fa-map-marker fa-stack-1x"></i>
                     </span>
                     <h4>{{venue.name}}</h4>
-                    <img class="img-responsive" src="{{venue.image}}" />
+                    <img class="img-responsive" src="http://www.nycgo.com/{{venue.image}}" />
                 </div>
                  <div class="panel-footer">
                     <dl class="information dl-horizontal">
@@ -170,7 +182,7 @@
                     <i class="fa fa-info fa-stack-1x"></i>
                 </span>
                 <div class="panel-body">
-                    <h4>Barclays Center</h4>
+                    <h4>{{venue.name}}</h4>
                     <img class="img-responsive" src="https://maps.googleapis.com/maps/api/staticmap?center={{venue.coord}}&zoom=15&size=460x285&maptype=roadmap
 &markers=color:red%7Clabel:A%7C{{venue.coord}}" />
                 </div>
